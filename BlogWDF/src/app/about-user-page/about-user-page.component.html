@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Current User: {{ userId }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p *ngIf="isLoggedIn()">
+      Name: {{ firstName }} {{ lastName }} <br>
+      Email: {{ email }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="isLoggedIn()" (click)="ToggleEdit()" mat-raised-button color="accent">Edit User</button>
+    <button *ngIf="isLoggedIn()" (click)="Logout()" mat-raised-button color="warn">Log Out</button>
+    <button *ngIf="!isLoggedIn()" mat-raised-button color="accent" routerLink="/login">Go To Login</button>
+  </mat-card-actions>
+</mat-card>
+<app-edit-user *ngIf="isEditingUser" (UserEdited)="UpdateOnEdit()" [firstName]="firstName" [lastName]="lastName"
+  [emailAddress]="email"></app-edit-user>

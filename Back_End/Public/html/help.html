@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Page</title>
+    <style>
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        th {
+            background-color: #dddddd;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Help Page</h1>
+    <table>
+        <tr>
+            <th>Route</th>
+            <th>Method</th>
+            <th>Functionality</th>
+            <th>Auth Required?</th>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/</td>
+            <td>Returns this help page.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Users</td>
+            <td>Returns a list of users.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Users/{id}</td>
+            <td>Returns a single user with the specified id.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[POST]</td>
+            <td>/Users</td>
+            <td>Creates a user specified by a json object. <br>
+                Must be formatted as follows, all fields required: <br>
+                { <br>
+                "userId": "___", <br>
+                "firstName": "___", <br>
+                "lastName": "___", <br>
+                "emailAddress": "___", <br>
+                "password": "___" <br>
+                }
+            </td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[PATCH]</td>
+            <td>/Users/{id}</td>
+            <td>Edits an existing user with specified id. <br>
+                Id cannot be changed. Any number of attributes may be included or ommited.
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[DELETE]</td>
+            <td>/Users/id</td>
+            <td>Deletes the user with the specified id.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Users/{userId}/{password}</td>
+            <td>Logs in user.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Posts/User/{userId}</td>
+            <td>Returns all the posts for a given user.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Posts</td>
+            <td>Returns all the posts in order of creation date.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[GET]</td>
+            <td>/Posts/{postId}</td>
+            <td>Returns a specific post.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>[POST]</td>
+            <td>/Posts</td>
+            <td>Creates a new post for the current user.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[PATCH]</td>
+            <td>/Posts/postID</td>
+            <td>Updates an existing post. Only the title, content, and headerImage may be edited. Updates the
+                lastUpdated value.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>[DELETE]</td>
+            <td>/Posts/{postId}</td>
+            <td>Deletes a post.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+</body>
+
+</html>

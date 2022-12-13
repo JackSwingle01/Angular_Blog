@@ -1,0 +1,27 @@
+<mat-card class="post">
+    <mat-card-header>
+        <!-- <div mat-card-avatar class="post-image"></div> -->
+        <mat-card-title>{{CurrentPost?.title}}</mat-card-title>
+        <mat-card-subtitle>By: {{CurrentPost?.userId}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <img class="post-image" mat-card-image [src]="CurrentPost?.headerImage" alt="">
+        <p>
+            {{CurrentPost?.content}}
+        </p>
+        <br>
+        <p>Post Id: {{CurrentPost?.postId}}</p>
+        <p>Last Updated: {{CurrentPost?.lastUpdated}}</p>
+    
+    </mat-card-content>
+    <mat-card-actions>
+        <!-- <app-edit-post-button [postId]="CurrentPost?.postId" (PostEdited)="EditPost()" ></app-edit-post-button> -->
+        <button *ngIf="CurrentPost?.userId == currentUser" (click)="TogglePostEditor()" mat-mini-fab color="accent">
+            <mat-icon>
+                edit
+            </mat-icon>
+        </button>
+        <app-delete-post-button *ngIf="CurrentPost?.userId == currentUser" [postId]="CurrentPost?.postId" (PostDeleted)="DeletePost()" ></app-delete-post-button>
+    </mat-card-actions>
+</mat-card>
+<app-edit-post (PostEdited)="EditPost()" [currentPost]="CurrentPost" *ngIf="isEditing"></app-edit-post>

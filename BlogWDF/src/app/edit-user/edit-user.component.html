@@ -1,0 +1,33 @@
+<mat-card class="card">
+    <mat-card-header class="header">
+        <mat-card-title>Edit User:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="form" action="">
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input name="First Name" [(ngModel)]="firstName" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input name="Last Name" [(ngModel)]="lastName" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Email Address</mat-label>
+                <input name="Email Address" [(ngModel)]="emailAddress" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input name="Password (Optional)" [(ngModel)]="password" matInput>
+            </mat-form-field>
+        </form>
+        <h2 *ngIf="isError">Error: all fields required.</h2>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button (click)="Edit()" mat-raised-button color="accent">Edit</button>
+    </mat-card-actions>
+</mat-card>
+<br>

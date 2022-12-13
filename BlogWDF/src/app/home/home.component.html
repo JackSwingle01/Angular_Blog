@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="col">
+        <div class="row" *ngFor="let currentPost of postArray">
+            <app-post [CurrentPost]="currentPost" (PostDeleted)="RemovePost($event)" (PostEdited)="EditPost($event)" ></app-post>
+            <br>
+        </div>
+    </div>
+</div>
